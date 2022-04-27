@@ -25,8 +25,6 @@ void Greet::set_interjection(string word) {
 
 	interjection = word;
 
-
-
 }
 
 void Greet::set_noun(string word) {
