@@ -8,7 +8,7 @@
 // Put in a vector of values and returns a vector with two values
 // First value is the lowest from the input vector
 // Second value is the highest value from the input vector
-std::vector<int> r_style_range(std::vector<int> &x) {
+std::vector<int> r_style_range(const std::vector<int> &x) {
 
 	assert(x.size() > 0);
 
@@ -66,8 +66,12 @@ template <class T>
 void print_vector(T const& t) {
 
 	for (const auto& value : t) {
-		std::cout << value << std::endl;
+		
+		std::cout << value << " ";
+
 	}
+
+	std::cout << std::endl;
 
 }
 
@@ -84,9 +88,11 @@ int main()
 
 	for (int i = 0; i < result_int_func.size(); i++) {
 		
-		std::cout << result_int_func[i] << std::endl;
+		std::cout << result_int_func[i] << " ";
 	
 	}
+
+	std::cout << std::endl;
 
 
 	// using templates
@@ -106,6 +112,17 @@ int main()
 	std::vector<char> result_char_template = r_range_template<std::vector<char>>(characters);
 
 	print_vector<std::vector<char>>(result_char_template);
+
+
+	// using the keyword `typedef` to minimize typeing
+
+	typedef std::vector<char> char_vec;
+
+	char_vec new_chr = { 'a', 'b', 'c', 'd' };
+
+	char_vec range_chr = r_range_template<char_vec>(new_chr);
+
+	print_vector<char_vec>(range_chr);
 
 }
 
